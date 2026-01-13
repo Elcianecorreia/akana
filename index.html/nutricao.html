@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santuário - Nutrição & Saúde</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="modo-galaxia">
+
+    <main class="app-container">
+        <section class="card-glass">
+            <h3>Configuração Bio 🧬</h3>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="number" id="input-peso" placeholder="Seu Peso (kg)" style="width: 50%;">
+                <button onclick="salvarPeso()" class="btn-pequeno">Salvar</button>
+            </div>
+            <p id="meta-agua-texto" style="font-size: 12px; margin-top: 10px; opacity: 0.8;">Defina seu peso para calcular a meta.</p>
+        </section>
+
+        <section class="card-glass">
+            <h3>Hidratação 💧</h3>
+            <div class="barra-progresso-container">
+                <div id="barra-agua-interna" class="barra-agua" style="width: 0%;"></div>
+            </div>
+            <p style="text-align: center; margin: 10px 0;"><span id="agua-atual">0</span> / <span id="agua-meta">2000</span> ml</p>
+            <button onclick="adicionarAgua(250)" class="btn-acao-principal" style="width: 100%;">+ 250ml (Copo)</button>
+        </section>
+
+        <section class="card-glass">
+            <h3>Nutrição do Gatinho 🍎</h3>
+            <p style="font-size: 11px; margin-bottom: 10px;">Valide o que você comeu hoje:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <button onclick="validarNutriente('Proteína', 30)" class="btn-nutri">🍗 Proteína</button>
+                <button onclick="validarNutriente('Carbo', 20)" class="btn-nutri">🍚 Carbo</button>
+                <button onclick="validarNutriente('Fruta', 25)" class="btn-nutri">🍎 Fruta/Fibra</button>
+                <button onclick="validarNutriente('Doce', -10)" class="btn-nutri">🍩 Doce</button>
+            </div>
+        </section>
+
+        <section class="card-glass">
+            <h3>Consumo de Hoje ✅</h3>
+            <ul id="lista-nutricao" class="lista-concluidas"></ul>
+        </section>
+    </main>
+
+    <nav class="tab-bar">
+        <a href="index.html" class="tab-item">👤 Avatar</a>
+        <a href="foco.html" class="tab-item">⚡ Foco</a>
+        <a href="nutricao.html" class="tab-item active">🍎 Nutrição</a>
+    </nav>
+
+    <script src="storage.js"></script>
+    <script src="nutricao.js"></script>
+</body>
+</html>

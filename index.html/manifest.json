@@ -1,0 +1,23 @@
+{
+  "name": "Luna Focus: Arkana",
+  "short_name": "Arkana",
+  "description": "Transforme seu foco em poder e evolução.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0f1e",
+  "theme_color": "#f1c40f",
+  "icons": [
+    {
+      "src": "gatinho.capa.png.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "gatinho.capa.png.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

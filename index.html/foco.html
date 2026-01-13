@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santuário - Foco & Roda da Vida</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="modo-galaxia modo-lua">
+
+    <main class="app-container">
+        <section class="card-glass">
+            <h2>Modo Foco ⚡</h2>
+            <div id="timer" class="timer-display" style="font-size: 48px; text-align:center; font-weight: bold; margin: 20px 0;">25:00</div>
+            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input type="number" id="minutos" value="25" style="width: 60px; padding: 10px; border-radius: 8px; border: none;">
+                <input type="text" id="missao-nome" placeholder="Qual sua missão agora?" style="flex:1; padding: 10px; border-radius: 8px; border: none;">
+            </div>
+            <button id="btn-foco" onclick="iniciarFoco()" style="width: 100%; padding: 15px; border-radius: 10px; border: none; background: #f1c40f; font-weight: bold; cursor: pointer;">Iniciar Hiperfoco</button>
+        </section>
+
+        <section class="card-glass">
+            <h3>🎡 Roda do Equilíbrio</h3>
+            <div style="width: 100%; max-width: 300px; margin: 0 auto;">
+                <canvas id="graficoRodaVida"></canvas>
+            </div>
+            <div id="checkin-roda" style="margin-top: 20px;">
+                <h4 style="text-align: center; margin-bottom: 15px;">Ajustar 12 Áreas 🌸</h4>
+                <div class="grid-controles" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 11px;">
+                    <label>Espiritual: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('espiritualidade', this.value)"></label>
+                    <label>Saúde: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('saude', this.value)"></label>
+                    <label>Intelectual: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('intelectual', this.value)"></label>
+                    <label>Emocional: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('emocional', this.value)"></label>
+                    <label>Realização: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('realizacao', this.value)"></label>
+                    <label>Recursos: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('recursos', this.value)"></label>
+                    <label>Contribuição: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('contribuicao', this.value)"></label>
+                    <label>Família: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('familia', this.value)"></label>
+                    <label>Amoroso: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('amoroso', this.value)"></label>
+                    <label>Social: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('social', this.value)"></label>
+                    <label>Hobbies: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('hobbies', this.value)"></label>
+                    <label>Plenitude: <input type="range" min="0" max="10" value="5" onchange="ajustarRoda('plenitude', this.value)"></label>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-glass">
+            <h3>🎯 Mural de Metas</h3>
+            <div class="input-group-col" style="display: flex; flex-direction: column; gap: 8px;">
+                <input type="text" id="nova-meta" placeholder="Escreva sua meta aqui..." style="padding: 10px; border-radius: 8px; border: none;">
+                <div style="display: flex; gap: 10px;">
+                    <select id="prio-meta" style="flex: 1; padding: 10px; border-radius: 8px; border: none;">
+                        <option value="imediata">⚡ Imediata</option>
+                        <option value="prioridade">🔥 Prioridade</option>
+                        <option value="qualquer-momento">☁️ Qualquer Momento</option>
+                    </select>
+                    <button onclick="adicionarMeta()" style="padding: 0 20px; border-radius: 8px; border: none; background: #2ecc71; color: white; font-weight: bold; cursor: pointer;">+</button>
+                </div>
+            </div>
+            <ul id="lista-metas" style="margin-top: 15px; list-style: none; padding: 0;"></ul>
+        </section>
+
+        <section class="card-glass">
+            <h3>✅ Concluídas Hoje</h3>
+            <ul id="lista-historico-foco" style="list-style: none; padding: 0;"></ul>
+        </section>
+    </main>
+
+    <nav class="tab-bar">
+        <a href="index.html" class="tab-item">👤 Avatar</a>
+        <a href="foco.html" class="tab-item active">⚡ Foco</a>
+        <a href="nutricao.html" class="tab-item">🍎 Nutrição</a>
+    </nav>
+
+    <script src="storage.js"></script>
+    <script src="foco.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+/* ============================================================
+   SANTUÁRIO MAX - CSS DE ELITE (CORREÇÃO GERAL)
+   Foco: Dourado, Azul, Branco e Animações Fluídas
+   ============================================================ */
+
+:root { 
+    --gold: #f1c40f; 
+    --gold-glow: rgba(241, 196, 15, 0.5);
+    --blue-magic: #3498db;
+    --glass: rgba(255, 255, 255, 0.08); 
+    --dark: #0f0f1e;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- 1. CONFIGURAÇÕES GERAIS --- */
+* { 
+    box-sizing: border-box; 
+    -webkit-tap-highlight-color: transparent;
+    transition: var(--transition); /* Animação suave em tudo */
+}
+
+body { 
+    margin: 0; 
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--dark);
+    color: white; 
+    min-height: 100vh; 
+    overflow-x: hidden;
+    background-image: url('https://images.unsplash.com/photo-1464802686167-b939a6910659?w=800');
+    background-size: cover; 
+    background-attachment: fixed;
+}
+
+/* --- 2. CONTAINERS E GLASSMORPHISM --- */
+.app-container {
+    padding: 20px;
+    padding-bottom: 110px; 
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.card-glass {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* --- 3. STATUS E AVATAR (CORREÇÃO DE CAMADAS) --- */
+.status-topo {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border: 2px solid var(--gold);
+    width: fit-content;
+    margin: 0 auto;
+    box-shadow: 0 0 20px var(--gold-glow);
+}
+
+.container-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    position: relative;
+}
+
+.avatar-camadas {
+    position: relative;
+    height: 280px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-avatar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px var(--gold-glow));
+}
+
+/* Animação de "respiração" no avatar */
+.avatar-camadas:hover .img-avatar {
+    transform: scale(1.05);
+}
+
+/* --- 4. INPUTS E BOTÕES (AZUL E DOURADO COM ANIMAÇÃO) --- */
+input[type="text"], input[type="number"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    color: white !important;
+    width: 100%;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--gold) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 15px var(--gold-glow);
+    transform: translateY(-2px);
+}
+
+/* Botão Dourado (Padrão) */
+.btn-acao-principal {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(45deg, #f1c40f, #f39c12);
+    color: #000;
+    border: none;
+    border-radius: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--gold-glow);
+}
+
+/* Botão Azul (Nutrição/Ação Secundária) */
+.btn-acao-nutri {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-acao-principal:hover, .btn-acao-nutri:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.2);
+}
+
+.btn-acao-principal:active, .btn-acao-nutri:active {
+    transform: scale(0.95);
+}
+
+/* --- 5. CALENDÁRIO COM X-DOURADO --- */
+.grid-calendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    padding: 10px 0;
+}
+
+.dia-calendario {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dia-calendario:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--gold);
+}
+
+.dia-concluido {
+    border: 1px solid var(--gold);
+    background: rgba(241, 196, 15, 0.1) !important;
+}
+
+.x-dourado {
+    position: absolute;
+    color: var(--gold);
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px #000;
+    animation: scaleIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- 6. BARRAS DE STATUS (XP/ENERGIA) --- */
+.bar {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), #f39c12);
+    box-shadow: 0 0 10px var(--gold-glow);
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- 7. METAS E MURAL --- */
+.meta-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border-left: 5px solid transparent;
+}
+
+.meta-item:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.12); }
+
+.meta-imediata { border-left-color: #e74c3c; } 
+.meta-prioridade { border-left-color: var(--gold); } 
+.meta-qualquer-momento { border-left-color: var(--blue-magic); }
+
+/* --- 8. NAVEGAÇÃO (TAB BAR) --- */
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background: rgba(15, 15, 30, 0.95);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 2px solid var(--gold);
+    z-index: 1000;
+}
+
+.tab-item {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 24px;
+}
+
+.tab-item.active {
+    opacity: 1;
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--gold-glow);
+    transform: translateY(-5px);
+}
+
+/* --- 9. KEYFRAMES ANIMAÇÕES --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0) rotate(-20deg); opacity: 0; }
+    to { transform: scale(1) rotate(-10deg); opacity: 1; }
+}

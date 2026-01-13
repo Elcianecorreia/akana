@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santuário Max - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="modo-galaxia">
+
+    <main class="app-container">
+        <header class="card-glass" style="text-align: center;">
+            <h1 id="saudacao">Carregando...</h1>
+            <div class="status-topo">
+                <span>💰 <span id="user-moedas">0</span></span>
+                <span>⭐ Nível <span id="user-nivel">0</span></span>
+            </div>
+            <div class="status-energia">
+                <p>Energia Vital</p>
+                <div class="bar">
+                    <div id="energia-fill" class="fill"></div>
+                </div>
+            </div>
+        </header>
+
+        <section class="container-avatar">
+            <div class="avatar-camadas">
+                <img src="corpo_base.png.png" id="camada-corpo" class="img-avatar">
+                
+                <img src="" id="camada-roupa" class="img-avatar" style="display: none; z-index: 2;">
+            </div>
+
+            <div class="card-glass balao-frase" style="margin-top: 20px;">
+                <p id="frase-dia" style="font-style: italic; text-align: center;">"Aguardando sabedoria..."</p>
+            </div>
+        </section>
+
+        <section class="card-glass">
+            <h3>📅 Seu Progresso Mensal</h3>
+            <div id="calendario-container" class="grid-calendario">
+                </div>
+        </section>
+    </main>
+
+    <nav class="tab-bar">
+        <a href="index.html" class="tab-item active">👤 Avatar</a>
+        <a href="foco.html" class="tab-item">⚡ Foco</a>
+        <a href="nutricao.html" class="tab-item">🍎 Nutri</a>
+        <a href="loja.html" class="tab-item">🛒 Loja</a>
+    </nav>
+
+    <script src="storage.js"></script>
+<script src="script.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>
